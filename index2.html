@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAMM</title>
+  <link rel="stylesheet" href="style/style_flex.css">
+  <style>
+    
+    body {
+      margin: 0; 
+      overflow-x: hidden;
+    }
+    
+</style>
+</head>
+<body>
+  
+<nav class="navi">
+    <div class="burger" id="burger">&#9776;</div> 
+    <div class="cross" id="cross">&#10006;</div> 
+    
+    <div class="menu" id="menu">
+        <a href="index.html">главная</a>
+        <a href="#">профиль</a>
+        <a href="index5.html">мероприятия</a>
+    </div>
+</nav>
+
+<div class="top"> 
+   <h1 class="header-text">TOMORROW X TOGETHER</h1>
+   <img src="картинки/Layer2copy.png" alt="Левый элемент" class="ear_l"> 
+   <img src="картинки/профиль1.jpg" alt="профиль" class="group">
+   <img src="картинки/профиль1.jpg" height="801" width="1235" alt="размытый" class="group_blur">
+   <img src="картинки/Layer1copy.png" alt="Правый элемент" class="ear_r"> 
+</div>
+<img src="картинки/клякса2.png" alt="доп" class="but_img2" height="600" width="330">
+
+<h2 class="flex-header">ДИСКОГРАФИЯ</h2>
+
+<div class="image-container">
+   <img src="картинки/1.png" class="image" alt="Image 1">
+   <img src="картинки/2.png" class="image" alt="Image 2">
+   <img src="картинки/3.png" class="image" alt="Image 3">
+   <img src="картинки/4.png" class="image" alt="Image 4">
+   <img src="картинки/5.png" class="image" alt="Image 5">
+   <img src="картинки/6.png" class="image" alt="Image 6">
+   <img src="картинки/7.png" class="image" alt="Image 7">
+   <img src="картинки/8.png" class="image" alt="Image 8">
+   <img src="картинки/9.png" class="image" alt="Image 9">
+   <img src="картинки/10.png" class="image" alt="Image 10">
+</div>
+<img src="картинки/клякса1.png" alt="доп" class="but_img" height="600" width="330">
+<footer>
+    <div class="social-links">
+      <a href="#">twitter</a>
+      <a href="#">youtube</a>
+      <a href="#">instagram</a>
+    </div>
+    <div class="right-links">
+      <a href="#">spotify</a>
+      <a href="#">tiktok</a>
+    </div>
+    <div class="rright-links">
+      <p><b>связаться с нами</b></p>
+      <a href="#">jamm.tickets@outlook.com</a>
+    </div>
+    <div class="cc-links">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p> copyright © JAMM music 2024</p>
+    </div>
+ </footer>
+<script>
+const burger = document.getElementById('burger');
+const cross = document.getElementById('cross');
+const menu = document.getElementById('menu');
+
+burger.addEventListener('click', () => {
+    menu.classList.toggle('show'); 
+    burger.classList.toggle('active'); 
+    cross.classList.toggle('active'); 
+});
+
+cross.addEventListener('click', () => {
+    menu.classList.remove('show'); 
+    burger.classList.remove('active'); 
+    cross.classList.remove('active'); 
+});
+
+const images = document.querySelectorAll('.image');
+
+images.forEach((image, index) => {
+    image.style.marginTop = `${index * -15}px`; 
+
+    image.addEventListener('click', () => {
+        const isActive = image.classList.contains('active');
+
+        images.forEach(img => img.classList.remove('active'));
+
+        if (!isActive) {image.classList.add('active');}
+
+        updateImagePositions();
+    });
+});
+</script>
+
+</body>
+</html>

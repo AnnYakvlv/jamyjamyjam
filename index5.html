@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/bootstrap.css">
+    <title>JAMM</title>
+</head>
+<body>
+    <nav class="nav">
+        <div class="burger" id="burger">&#9776;</div> 
+        <div class="cross" id="cross">&#10006;</div> 
+        
+        <div class="menu" id="menu">
+            <a href="index.html">главная</a>
+            <a href="index2.html">профиль</a>
+            <a href="#">мероприятия</a>
+        </div>
+    </nav>
+    <h1 class="header-text">КОНЦЕРТЫ И СОБЫТИЯ</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="index3.html"><img src="картинки/ban_pr.jpg" alt="Первое изображение"></a>
+                        <div class="carousel-caption">
+                            <h5>ACT: PROMICE</h5>
+                            <p>Мировой тур в поддержку альбома <br>Minisode 3: Tomorrow</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="#"><img src="картинки/ban_1.jpg" alt="Второе изображение"></a>
+                        <div class="carousel-caption">
+                            <h5>ACT: SWEET MIRAGE</h5>
+                            <p>Мировой тур в поддержку альбома <br> The Name Chapter: Temtation</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="#"><img src="картинки/ban_2.jpg" alt="Третье изображение"></a>
+                        <div class="carousel-caption">
+                            <h5>HYPERFOCUS</h5>
+                            <p>VR концерт</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Назад</span>
+                </a>
+                <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Вперед</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<img src="картинки/клякса6.png" alt="доп" class="but_img3" height="580" width="600">
+<footer>
+    <div class="social-links">
+      <a href="#">twitter</a>
+      <a href="#">youtube</a>
+      <a href="#">instagram</a>
+    </div>
+    <div class="right-links">
+      <a href="#">spotify</a>
+      <a href="#">tiktok</a>
+    </div>
+    <div class="rright-links">
+      <p><b>связаться с нами</b></p>
+      <a href="#">jamm.tickets@outlook.com</a>
+      <br>
+      <br>
+      <br>
+      <p> copyright © JAMM music 2024</p>
+    </div>
+    
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    const burger = document.getElementById('burger');
+    const cross = document.getElementById('cross');
+    const menu = document.getElementById('menu');
+    
+    burger.addEventListener('click', () => {
+        menu.classList.toggle('show'); 
+        burger.classList.toggle('active'); 
+        cross.classList.toggle('active'); 
+    });
+    
+    cross.addEventListener('click', () => {
+        menu.classList.remove('show'); 
+        burger.classList.remove('active'); 
+        cross.classList.remove('active'); 
+    });
+    </script>
+
+</body>
+</html>

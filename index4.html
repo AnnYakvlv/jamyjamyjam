@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMM</title>
+    <link rel="stylesheet" href="style/style_grid.css">
+    <script src="js/telegram-service.js" defer></script>
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #E9E0D1;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /*.modal-header {
+            border-bottom: 2px solid #E84D45;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }*/
+
+        .modal-header h2 {
+            font-family: 'Kepler296';
+            color: #E84D45;
+            font-size: 18pt;
+            margin: 0;
+            
+        }
+
+        .event-info {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .event-name {
+            font-family: 'Kepler296';
+            font-size: 14pt;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .event-details {
+            color: #666;
+            font-size: 12pt;
+        }
+
+        .total-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 10px 0;
+        }
+
+        .total-label {
+            font-family: 'Kepler296';
+            color: #E84D45;
+            font-size: 16pt;
+            font-weight: bold;
+        }
+
+        .total-price {
+            font-family: 'Kepler296';
+            color: #E84D45;
+            font-size: 16pt;
+            font-weight: bold;
+        }
+
+        .divider-line {
+            border-bottom: 5px solid #b7b7b7;
+            margin: 15px 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #000000;
+            border-radius: 16px;
+            font-size: 12pt;
+            box-sizing: border-box;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .pay-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #E84D45;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 14pt;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-family: 'Kepler296';
+        }
+
+        .pay-button:hover {
+            border: 3px solid #E84D45; 
+            border-radius: 50px;
+            background-color:white;
+            color: #E84D45;
+            transform: translateY(-2px);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-button:hover {
+            color: #E84D45;
+        }
+
+        .sector-info {
+            font-family: 'Kepler296';
+            color: black;
+            padding: 5px 0;
+            border-radius: 5px;
+            font-size: 12pt;
+            display: inline-block;
+            margin-top: 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav class="navo"></nav>
+    <img src="картинки/str_tik.jpg" alt="новый баннер" class="header">
+    <div class="container1">
+        <img src="картинки/клякса7.png" alt="доп" class="but_img5" height="580" width="310">
+        
+        <h1 class="text_head"> 24.11.24 СИДНЕЙ</h1>
+        <div class="text-section">
+            <h2 class="geo-point">Ограничения и требования для посетителей концерта</h2>
+            <p>&#128967; Qudos Bank Arena Edwin Flack Ave & Olympic Blvd, Olympic Park, Sydney, 2127, Australia</p>
+            <p> - Во избежание инцидентов проведется проверка всех гостей 
+                на наличие запрещенных предметов (оружие, наркотики,
+                взрывчатые вещества и т. д.).</p>
+            <p> - Лица, отказывающиеся проходить проверку, не будут допущены 
+                на концерт.</p>
+        </div>
+
+        <img src="картинки/layer3.png" alt="место" class="image1"> 
+
+        <div class="buttons">
+            <button class="button button1">
+                <span class="button-text">
+                    Фиолетовый
+                    <span class="button-price">14902 руб.</span>
+                </span>
+                <span class="discrpt">верхний ярус, отличный вид</span>
+            </button>
+            <button class="button button2">
+                <span class="button-text">
+                    Синий
+                    <span class="button-price">от 8000 руб.</span>
+                </span>
+                <span class="discrpt">верхний ярус, отличный вид</span>
+            </button>
+            <button class="button button3">
+                <span class="button-text">
+                    Оранжевый
+                    <span class="button-price">от 24687 руб.</span>
+                </span>
+                <span class="discrpt">билеты загружены заранее</span>
+            </button>
+            <button class="order-button" id="openModal">оформить</button>
+        </div>
+    </div>
+
+    <!-- Modal Window -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-content">
+            <button class="close-button" id="closeModal">&times;</button>
+            
+            <div class="modal-header">
+                <h2>ОПЛАТА ПОКУПКИ</h2>
+            </div>
+
+            <div class="event-info">
+                <div class="event-name">ACT: PROMISE</div>
+                <div class="event-details">24 ноября • Сидней, Qudos Bank Arena</div>
+                <div class="sector-info">42 сектор</div>
+            </div>
+
+            <!-- Добавлена разделительная линия -->
+            <div class="divider-line"></div>
+
+            <!-- Обновленный блок с итоговой суммой -->
+            <div class="total-container">
+                <span class="total-label">ИТОГО</span>
+                <span class="total-price">14.902 РУБ</span>
+            </div>
+
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label>Эл. почта</label>
+                    <input type="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Номер карты</label>
+                    <input type="text" name="card_number" required placeholder="1234 5678 9123 4567" maxlength="19">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Дата</label>
+                        <input type="text" name="card_date" required placeholder="MM/YY">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" name="card_cvv" required placeholder="123" maxlength="3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>ФИО</label>
+                    <input type="text" name="full_name" required placeholder="Беляев Антон Евгеньевич">
+                </div>
+
+                <button type="submit" class="pay-button">оплатить</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+          <a href="#">twitter</a>
+          <a href="#">youtube</a>
+          <a href="#">instagram</a>
+        </div>
+        <div class="right-links">
+          <a href="#">spotify</a>
+          <a href="#">tiktok</a>
+        </div>
+        <div class="rright-links">
+          <p><b>связаться с нами</b></p>
+          <a href="#">jamm.tickets@outlook.com</a>
+          <br>
+          <br>
+          <br>
+          <p> copyright © JAMM music 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        const modal = document.getElementById('paymentModal');
+        const openModalBtn = document.getElementById('openModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const paymentForm = document.getElementById('paymentForm');
+
+        // Button selection logic
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const isActive = button.classList.contains('active');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                if (!isActive) {
+                    button.classList.add('active');
+                }
+                updateButtonStyles();
+            });
+        });
+
+        // Modal functionality
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        paymentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Оплата прошла успешно! Билеты отправлены на вашу почту.');
+            modal.style.display = 'none';
+        });
+
+        // Card number formatting
+        const cardInput = document.querySelector('input[placeholder="1234 5678 9123 4567"]');
+        cardInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let matches = value.match(/\d{4,16}/g);
+            let match = matches && matches[0] || '';
+            let parts = [];
+            for (let i = 0; i < match.length; i += 4) {
+                parts.push(match.substring(i, i + 4));
+            }
+            if (parts.length) {
+                e.target.value = parts.join(' ');
+            } else {
+                e.target.value = value;
+            }
+        });
+
+        function updateButtonStyles() {
+            // Add any additional button style updates here
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMM</title>
+    <link rel="stylesheet" href="style/style_grid.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="burger" id="burger">&#9776;</div> 
+        <div class="cross" id="cross">&#10006;</div> 
+        
+        <div class="menu" id="menu">
+            <a href="index.html">главная</a>
+            <a href="index2.html">профиль</a>
+            <a href="index5.html">мероприятия</a>
+        </div>
+    </nav>
+    <div class="container">
+        <img src="картинки/ban_pr.jpg" alt="баннер" class="image">
+        <h1 class="title">ДОСТУПНЫЕ БИЛЕТЫ</h1>
+        <img src="картинки/клякса5.png" alt="доп" class="but_img4" height="600" width="330">
+        <div class="column">
+            <div class="block">
+                <div class="date">17 НОЯ 2024</div>
+                <div class="title-text">Окленд, Новая Зеландия Spark Arena</div>
+                <div class="symbol"><a href="#">&#8663;</a></div>
+            </div>
+            <div class="line"></div>
+            <div class="block">
+                <div class="date">24 ОКТ 2024</div>
+                <div class="title-text">Сидней, Австралия Qudos Bank Arena</div>
+                <div class="symbol"><a href="index4.html">&#8663;</a></div>
+            </div>
+            <div class="line"></div>
+            <div class="block">
+                <div class="date">16 ЯНВ 2025</div>
+                <div class="title-text">Кота, Колумбия Coliseo MedPlus</div>
+                <div class="symbol"><a href="#">&#8663;</a></div> 
+            </div>
+        </div>
+    </div>
+    <img src="картинки/клякса3.png" alt="доп" class="but_img3" height="600" width="330">
+    <footer>
+        <div class="social-links">
+          <a href="#">twitter</a>
+          <a href="#">youtube</a>
+          <a href="#">instagram</a>
+        </div>
+        <div class="right-links">
+          <a href="#">spotify</a>
+          <a href="#">tiktok</a>
+        </div>
+        <div class="rright-links">
+          <p><b>связаться с нами</b></p>
+          <a href="#">jamm.tickets@outlook.com</a>
+          <br>
+          <br>
+          <br>
+          <p> copyright © JAMM music 2024</p>
+        </div>
+        
+    </footer>
+    <script>
+        const burger = document.getElementById('burger');
+        const cross = document.getElementById('cross');
+        const menu = document.getElementById('menu');
+        
+        burger.addEventListener('click', () => {
+            menu.classList.toggle('show'); /* класс для меню*/
+            burger.classList.toggle('active'); /*для бургера*/
+            cross.classList.toggle('active'); /* для крестика*/
+        });
+        
+        cross.addEventListener('click', () => {
+            menu.classList.remove('show'); 
+            burger.classList.remove('active'); 
+            cross.classList.remove('active'); 
+        });
+        </script>
+</body>
+</html>
